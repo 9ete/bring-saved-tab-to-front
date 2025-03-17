@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.workspace.onDidSaveTextDocument((document) => {
-		vscode.window.showInformationMessage('Hello World from Move Last Saved Tab!');
+		// vscode.window.showInformationMessage('Hello World from Move Last Saved Tab!');
 		moveTabToFirst(document);
 	});
 
@@ -19,6 +19,11 @@ async function moveTabToFirst(document: vscode.TextDocument) {
         );
 
         if (tab) {
+
+            // If the tab is already in the first column, do nothing
+            if ( ! group.tabs.indexOf(tab) ) {
+                break;
+            }
 
             // If the tab is in preview mode, ensure it is pinned before closing
             if (tab.isPreview) {
