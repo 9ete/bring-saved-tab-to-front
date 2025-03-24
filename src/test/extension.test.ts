@@ -7,7 +7,7 @@ import * as fs from 'fs';
 const packageJson = JSON.parse(fs.readFileSync(__dirname + '/../../package.json', 'utf-8'));
 const extensionId = `${packageJson.publisher}.${packageJson.name}`;
 
-suite('Move Last Saved Tab Extension Tests', () => {
+suite('Bring Saved Tab to Front Extension Tests', () => {
     let sandbox: sinon.SinonSandbox;
 
     setup(() => {

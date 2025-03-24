@@ -1,9 +1,9 @@
 {
-  "name": "move-last-saved-tab",
-  "displayName": "Move Last Saved Tab",
-  "description": "Auto sort by last saved: Automaticaly moves the last saved tab to the 0 index of the default workbench.editor.openPosition and the open editors list.  IE on default saved files are moved to the rightmost position and bottom of editor list.",
+  "name": "bring-saved-tab-to-front",
+  "displayName": "Bring Saved Tab to Front",
+  "description": "Sort by last saved: Automaticaly moves the last saved tab to the 0 index of the default workbench.editor.openPosition and the open editors list.  IE on default saved files are moved to the rightmost position and bottom of editor list.",
   "publisher": "9ete",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.98.0"
   },
@@ -18,8 +18,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "move-last-saved-tab.activate",
-        "title": "Move Last Saved Tab to First"
+        "command": "bring-saved-tab-to-front.activate",
+        "title": "Bring Saved Tab to Front to First"
       }
     ]
   },
