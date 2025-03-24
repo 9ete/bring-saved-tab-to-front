@@ -20,10 +20,6 @@
       {
         "command": "move-last-saved-tab.activate",
         "title": "Move Last Saved Tab to First"
-      },
-      {
-        "command": "move-last-saved-tab.helloWorld",
-        "title": "Hello World"
       }
     ]
   },

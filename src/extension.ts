@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.workspace.onDidSaveTextDocument((document) => {
-		// vscode.window.showInformationMessage('Hello World from Move Last Saved Tab!');
 		moveTabToFirst(document);
 	});
 
