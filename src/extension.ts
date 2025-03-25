@@ -1,11 +1,32 @@
 import * as vscode from 'vscode';
+// Define the flag. Adjust the logic for setting this flag as needed.
+let replaceAllAction: boolean = false;
 
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.workspace.onDidSaveTextDocument((document) => {
-		moveTabToFirst(document);
-	});
+  let savedDocuments: vscode.TextDocument[] = [];
+  let saveTimeout: NodeJS.Timeout | undefined;
 
-	context.subscriptions.push(disposable);
+  const disposable = vscode.workspace.onDidSaveTextDocument((document) => {
+    savedDocuments.push(document);
+
+    if (saveTimeout) {
+      clearTimeout(saveTimeout);
+    }
+
+    // Group save events over 300ms
+    saveTimeout = setTimeout(() => {
+      // Only run if a single file was saved and replaceAllAction is false
+      if (savedDocuments.length === 1 && !replaceAllAction) {
+        moveTabToFirst(savedDocuments[0]);
+      } else if (savedDocuments.length > 1) {
+        console.warn("Multiple files saved at once; skipping moveTabToFirst.");
+      }
+      // Reset the array for the next group of saves
+      savedDocuments = [];
+    }, 300);
+  });
+
+  context.subscriptions.push(disposable);
 }
 
 async function moveTabToFirst(document: vscode.TextDocument) {
