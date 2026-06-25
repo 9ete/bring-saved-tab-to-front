@@ -1,25 +1,41 @@
 {
   "name": "bring-saved-tab-to-front",
   "displayName": "Bring Saved Tab to Front",
-  "description": "A Visual Studio Code Extension that enables sort by last saved: Automatically moves the last saved tab to the 0 index of the default workbench.editor.openPosition and the open editors list.  IE on default saved files are moved to the rightmost position and bottom of editor list.",
+  "description": "Automatically moves the most recently saved tab to the front of its editor group and the top of the Open Editors list.",
+  "version": "1.0.0",
   "publisher": "9ete",
-  "version": "0.0.1",
+  "license": "MIT",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.98.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "tabs",
+    "editor",
+    "save",
+    "open editors",
+    "workflow"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/9ete/bring-saved-tab-to-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/9ete/bring-saved-tab-to-front/issues"
+  },
+  "homepage": "https://github.com/9ete/bring-saved-tab-to-front#readme",
   "activationEvents": [
-    "onStartupFinished",
-    "onDidSaveTextDocument"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "bring-saved-tab-to-front.activate",
-        "title": "Bring Saved Tab to Front to First"
+        "title": "Bring Saved Tab to Front: Move Saved Tab to First"
       }
     ]
   },
